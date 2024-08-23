@@ -1,0 +1,55 @@
+/* Custom styles for the navigation bar */
+.custom-navbar {
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
+  background-color: #052c6c;
+  text-align: left;
+  padding: 5px 10px; /* More padding for better spacing */
+}
+
+.custom-navbar .nav-link {
+  color: #ffffff;
+  margin-right: 15px;
+  margin-left: 15%;
+  padding: 10px 20px; /* Add padding for blocky look */
+  border-radius: 50px; /* Slight rounding for modern feel */
+  background-color: #10149a; /* Background color for links */
+  transition: all 0.3s ease;
+  text-decoration: none !important;
+}
+
+.custom-navbar .nav-link:hover {
+  color: #10149a !important;
+  background-color: #ffffff;/*#e3e3e3; /* Change background color on hover */
+  transform: scale(1.05); /* Slightly scale up on hover */
+  font-weight: bold;
+  
+  /*font-size: 18px;*/
+}
+
+.custom-navbar .navbar-brand img {
+  margin-right: 10px; /* Space between logo and text */
+}
+
+.custom-navbar .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.custom-navbar .navbar-toggler-icon {
+  background-image: none; /* Remove default icon */
+  color: #fff; /* Set custom color for icon */
+}
+
+/* Custom styles for the navbar toggler when open */
+.custom-navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+  transform: rotate(90deg); /* Rotate icon when open */
+}
+
+.custom-navbar .ms-auto .nav-link {
+  margin-right: 0; /* Remove right margin for right-aligned links */
+}
+
+.logo-nav {
+  text-align: left;
+
+}
