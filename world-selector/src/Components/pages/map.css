@@ -1,0 +1,27 @@
+
+.map {
+    display: flex;
+    max-height: 700px;
+}
+
+.save-button {
+    background-color: #7fd4be;
+    border-radius: 20px;
+    border-width: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
+    margin: 10px auto;
+    transition: all 0.3s ease;
+    cursor:pointer;
+    position: relative;
+}
+
+.save-button:hover {
+    color: #7fd4be !important;
+    background-color: #000000;
+    transform: scale(1.05);
+    font-weight: bold;
+
+}

@@ -13,7 +13,7 @@ function App() {
           <NavigationBar />
           <div className="content-wrapper">
             <Routes>
-              <Route path="/" element={<Map />} />
+              <Route path="/map" element={<Map />} />
 
               {/* Add other routes as needed */}
             </Routes>

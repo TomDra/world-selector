@@ -3,32 +3,52 @@
   font-family: 'Arial', sans-serif;
   font-size: 18px;
   background-color: #052c6c;
-  text-align: left;
-  padding: 5px 10px; /* More padding for better spacing */
+  padding: 2px 10px; /* Reduced padding to make the bar less thick */
+}
+
+.custom-navbar .navbar-brand {
+  color: #ffffff;
+  font-size: 22px; /* Slightly smaller font size */
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+}
+
+.custom-navbar .navbar-brand img {
+  margin-right: 8px; /* Slightly reduced space between logo and text */
+}
+
+.custom-navbar .navbar-brand:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Ensure that the navbar links are on the left */
+.custom-navbar .navbar-collapse {
+  display: flex;
+  align-items: center; /* Aligns links vertically center */
+  flex-grow: 1; /* Allows the links to expand and take up space */
+  justify-content: flex-start; /* Aligns links to the left */
 }
 
 .custom-navbar .nav-link {
   color: #ffffff;
-  margin-right: 15px;
-  margin-left: 15%;
-  padding: 10px 20px; /* Add padding for blocky look */
-  border-radius: 50px; /* Slight rounding for modern feel */
-  background-color: #10149a; /* Background color for links */
+  margin-right: 10px;
+  text-align: left;
+  padding: 8px 16px;
+  border-radius: 50px;
+  background-color: #10149a;
   transition: all 0.3s ease;
   text-decoration: none !important;
 }
 
 .custom-navbar .nav-link:hover {
   color: #10149a !important;
-  background-color: #ffffff;/*#e3e3e3; /* Change background color on hover */
-  transform: scale(1.05); /* Slightly scale up on hover */
+  background-color: #ffffff;
+  transform: scale(1.05);
   font-weight: bold;
-  
-  /*font-size: 18px;*/
-}
-
-.custom-navbar .navbar-brand img {
-  margin-right: 10px; /* Space between logo and text */
 }
 
 .custom-navbar .navbar-toggler {
@@ -36,20 +56,18 @@
 }
 
 .custom-navbar .navbar-toggler-icon {
-  background-image: none; /* Remove default icon */
-  color: #fff; /* Set custom color for icon */
+  background-image: none;
+  color: #fff;
 }
 
-/* Custom styles for the navbar toggler when open */
 .custom-navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
-  transform: rotate(90deg); /* Rotate icon when open */
+  transform: rotate(90deg);
 }
 
-.custom-navbar .ms-auto .nav-link {
-  margin-right: 0; /* Remove right margin for right-aligned links */
+.custom-navbar .ms-auto {
+  display: none; /* Hide the space on the right for alignment */
 }
 
 .logo-nav {
   text-align: left;
-
 }
