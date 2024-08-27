@@ -38,7 +38,7 @@ export default function Map() {
       <Button variant="primary" onClick={handleSave} className="save-button">Save</Button>
       <div className="map">
       <ComposableMap projection="geoEqualEarth">
-        <ZoomableGroup center={[0, 3]}>
+        <ZoomableGroup center={[0, 7]}>
           <Geographies geography={geoData}>
             {({ geographies }) =>
               geographies.map((geo) => {
