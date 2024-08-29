@@ -8,16 +8,17 @@
 
 .custom-navbar .navbar-brand {
   color: #ffffff;
-  font-size: 22px; /* Slightly smaller font size */
+  font-size: 22px;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 2px;
   display: flex;
   align-items: center;
+  text-decoration: none !important;
 }
 
 .custom-navbar .navbar-brand img {
-  margin-right: 8px; /* Slightly reduced space between logo and text */
+  margin-right: 8px;
 }
 
 .custom-navbar .navbar-brand:hover {
@@ -25,27 +26,24 @@
   text-decoration: none;
 }
 
-/* Ensure that the navbar links are on the left */
 .custom-navbar .navbar-collapse {
   display: flex;
-  align-items: center; /* Aligns links vertically center */
-  flex-grow: 1; /* Allows the links to expand and take up space */
-  justify-content: flex-start; /* Aligns links to the left */
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .custom-navbar .nav-link {
   color: #ffffff;
   margin-right: 10px;
-  text-align: left;
   padding: 8px 16px;
   border-radius: 50px;
-  background-color: #10149a;
+  background-color: #052c6c;
   transition: all 0.3s ease;
   text-decoration: none !important;
 }
 
 .custom-navbar .nav-link:hover {
-  color: #10149a !important;
+  color: #052c6c !important;
   background-color: #ffffff;
   transform: scale(1.05);
   font-weight: bold;
@@ -60,14 +58,59 @@
   color: #fff;
 }
 
-.custom-navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
-  transform: rotate(90deg);
+.custom-navbar .navbar-toggler {
+  border: none; /* Remove the border around the button */
+  background-color: #10149a; /* Set a background color that matches your theme */
+  padding: 4px 10px; /* Adjust the padding to make it look better */
+  border-radius: 50px; /* Make the button rounded */
 }
 
-.custom-navbar .ms-auto {
-  display: none; /* Hide the space on the right for alignment */
+.custom-navbar .navbar-toggler-icon {
+  background-image: none; /* Remove the default icon */
+  background-color: #ffffff; /* Set the color of the lines inside the toggler */
+  width: 24px;
+  height: 2px;
+  position: relative;
+  display: block;
+  transition: all 0.3s ease;
 }
 
-.logo-nav {
-  text-align: left;
+.custom-navbar .navbar-toggler-icon::before,
+.custom-navbar .navbar-toggler-icon::after {
+  content: '';
+  background-color: #ffffff; /* Set the color of the lines */
+  width: 24px;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.custom-navbar .navbar-toggler-icon::before {
+  top: -8px;
+}
+
+.custom-navbar .navbar-toggler-icon::after {
+  top: 8px;
+}
+
+/* Optional: Change the color of the toggler icon when the button is clicked (collapsed state) */
+.custom-navbar .navbar-toggler.collapsed .navbar-toggler-icon {
+  background-color: transparent; /* Hide middle line */
+}
+
+.custom-navbar .navbar-toggler.collapsed .navbar-toggler-icon::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.custom-navbar .navbar-toggler.collapsed .navbar-toggler-icon::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+@media (min-width: 992px) {
+  .custom-navbar .navbar-toggler {
+    display: none;
+  }
 }

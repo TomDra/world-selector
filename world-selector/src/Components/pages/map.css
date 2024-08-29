@@ -1,10 +1,12 @@
-
-.map {
+.button-container {
     display: flex;
-    max-height: 700px;
+    gap: 5px; /* Reduce the space between the buttons */
+    justify-content: center; /* Center the buttons horizontally */
+    margin-bottom: 5px; /* Space between the buttons and the map */
 }
 
-.save-button {
+.save-button, .load-button {
+    font-size: 15px;
     background-color: #7fd4be;
     border-radius: 20px;
     border-width: 0;
@@ -12,16 +14,19 @@
     justify-content: center;
     align-items: center;
     padding: 10px 15px;
-    margin: 10px auto;
+    margin: 10px 0; /* Reduce the top and bottom margin */
     transition: all 0.3s ease;
-    cursor:pointer;
+    cursor: pointer;
     position: relative;
 }
 
-.save-button:hover {
+.save-button:hover, .load-button:hover {
     color: #7fd4be !important;
     background-color: #000000;
     transform: scale(1.05);
     font-weight: bold;
+}
+
+.map {
 
 }

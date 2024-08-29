@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+
 
 import Map from './Components/pages/map'
 import NavigationBar from './Components/navigation_bar'

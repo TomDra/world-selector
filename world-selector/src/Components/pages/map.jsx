@@ -8,7 +8,6 @@ import './map.css';
 export default function Map() {
   const [selectedCountries, setSelectedCountries] = useState([]);
 
-  // Load selected countries from localStorage when the component mounts
   useEffect(() => {
     const savedCountries = localStorage.getItem("selectedCountries");
     if (savedCountries) {
@@ -19,10 +18,8 @@ export default function Map() {
   const handleCountryClick = (geo) => {
     const countryKey = geo.rsmKey;
     if (selectedCountries.includes(countryKey)) {
-      // Remove country from the selectedCountries array if it is already selected (unpress)
       setSelectedCountries(selectedCountries.filter((key) => key !== countryKey));
     } else {
-      // Add country to the selectedCountries array if it is not selected (press)
       setSelectedCountries([...selectedCountries, countryKey]);
     }
   };
@@ -33,40 +30,82 @@ export default function Map() {
     localStorage.setItem("selectedCountries", JSON.stringify(selectedCountries));
   };
 
+
+  const handleLoad = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const content = e.target.result;
+      try {
+        const loadedCountries = JSON.parse(content);
+        setSelectedCountries(loadedCountries);
+        localStorage.setItem("selectedCountries", JSON.stringify(loadedCountries));
+      } catch (error) {
+        console.error("Error loading file:", error);
+        alert("Failed to load file. Please ensure it is a valid JSON file.");
+      }
+    };
+    if (file) {
+      reader.readAsText(file);
+    }
+  };
+
   return (
     <div>
-      <Button variant="primary" onClick={handleSave} className="save-button">Save</Button>
+      <div className="button-container">
+        <Button variant="primary" onClick={handleSave} className="save-button">Save</Button>
+        <label htmlFor="file-upload" className="load-button" >
+          Load
+        </label>
+        <input 
+          id="file-upload" 
+          type="file" 
+          accept=".json" 
+          onChange={handleLoad} 
+          style={{ display: "none" }} 
+        />
+      </div>
       <div className="map">
-      <ComposableMap projection="geoEqualEarth">
-        <ZoomableGroup center={[0, 7]}>
-          <Geographies geography={geoData}>
-            {({ geographies }) =>
-              geographies.map((geo) => {
-                const isSelected = selectedCountries.includes(geo.rsmKey);
-                return (
-                  <Geography
-                    key={geo.rsmKey}
-                    geography={geo}
-                    onClick={() => handleCountryClick(geo)}
-                    style={{
-                      default: {
-                        fill: isSelected ? "#ad1515" : "#b5c3f7",
-                      },
-                      hover: {
-                        fill: "#d47fb0",
-                      },
-                      pressed: {
-                        fill: "#ad1515",
-                      },
-                    }}
-                  />
-                );
-              })
-            }
-          </Geographies>
-        </ZoomableGroup>
-      </ComposableMap>
+        <ComposableMap projection="geoEqualEarth">
+          <ZoomableGroup center={[0, 7]}>
+            <Geographies geography={geoData}>
+              {({ geographies }) =>
+                geographies.map((geo) => {
+                  const isSelected = selectedCountries.includes(geo.rsmKey);
+                  return (
+                    <Geography
+                      key={geo.rsmKey}
+                      geography={geo}
+                      onClick={() => handleCountryClick(geo)}
+                      style={{
+                        default: {
+                          fill: isSelected ? "#ad1515" : "#b5c3f7",
+                          stroke: "none",
+                          strokeWidth: 0,
+                          outline: "none", // Remove the focus outline
+                        },
+                        hover: {
+                          fill: isSelected ? "inherit" : "#d47fb0",
+                          stroke: "none",
+                          strokeWidth: 0,
+                          outline: "none", // Remove the focus outline
+                        },
+                        pressed: {
+                          fill: "#ad1515",
+                          stroke: "none",
+                          strokeWidth: 0,
+                          outline: "none", // Remove the focus outline
+                        },
+                      }}
+                    />
+                  );
+                })
+              }
+            </Geographies>
+          </ZoomableGroup>
+        </ComposableMap>
       </div>
     </div>
   );
 }
+
